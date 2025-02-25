@@ -429,7 +429,187 @@ p {
             window.location.href = mailto:breakingtheicehelp@gmail.com?subject=${subject}&body=${body};
         }
     </script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break The Ice Sports</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
 
+        /* Navigation Bar */
+        .navbar {
+            background-color: #5BBEE7;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar img {
+            height: 40px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        .navbar a {
+            color: white;
+            text-align: center;
+            padding: 8px 12px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
 
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding-top: 50px;
+        }
+
+        /* Header Section */
+        header {
+            background: url('Backdrop.jpg') no-repeat center center;
+            background-size: cover;
+            min-height: 500px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        header h1 {
+            position: relative;
+            z-index: 1;
+            font-size: 3rem;
+        }
+
+        /* Donate Button */
+        .donate-button {
+            position: fixed;
+            top: 80px;
+            right: 10px;
+            background-color: #5BBEE7;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .donate-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Sponsorship Tiers */
+        .sponsorship-tiers {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+        .tier {
+            min-width: 200px;
+            padding: 20px;
+            border: 1px solid #5BBEE7;
+            text-align: center;
+            font-weight: bold;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+        }
+        .tier:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="#"><img src="logo.png" alt="Break The Ice Sports Logo"></a>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#missions">Missions</a>
+            <a href="#executive-team">About Us</a>
+            <a href="#subscriptions">Subscriptions</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <h1>Break The Ice Sports</h1>
+    </header>
+
+    <!-- Donate Button with Confetti Effect -->
+    <a href="https://hcb.hackclub.com/donations/start/breaking-the-ice-sports-initiative" 
+       class="donate-button" 
+       target="_blank" 
+       onclick="startConfetti(event)">
+       Donate
+    </a>
+
+    <!-- Sponsorship Section -->
+    <div class="section" id="subscriptions">
+        <h2>Sponsorship Page</h2>
+        <p>Different sponsorship tiers and their respective perks.</p>
+        <div class="sponsorship-tiers">
+            <a href="https://hcb.hackclub.com/donations/start/breaking-the-ice-sports-initiative" class="tier">Tier 1<br>Basic recognition<br>$20</a>
+            <a href="https://hcb.hackclub.com/donations/start/breaking-the-ice-sports-initiative" class="tier">Tier 2<br>Social media shoutout<br>$100</a>
+            <a href="https://hcb.hackclub.com/donations/start/breaking-the-ice-sports-initiative" class="tier">Tier 3<br>Logo on event banners<br>$250</a>
+            <a href="https://hcb.hackclub.com/donations/start/breaking-the-ice-sports-initiative" class="tier">Tier 4<br>Logo on team jerseys<br>$300</a>
+            <a href="https://hcb.hackclub.com/donations/start/breaking-the-ice-sports-initiative" class="tier">Tier 5<br>Featured sponsor on website<br>$500</a>
+            <a href="https://hcb.hackclub.com/donations/start/breaking-the-ice-sports-initiative" class="tier">Tier 6<br>All benefits + plaque<br>$750</a>
+        </div>
+    </div>
+
+    <script>
+        function startConfetti(event) {
+            event.preventDefault(); // Prevent immediate redirection
+
+            confetti({
+                particleCount: 200,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+
+            // Redirect after a short delay
+            setTimeout(() => {
+                window.open(event.target.href, '_blank');
+            }, 500);
+        }
+    </script>
 </body>
 </html>
